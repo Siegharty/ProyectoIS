@@ -9,21 +9,35 @@
     <!--Scripts-->
     <script src="lib/jquery/jquery-3.1.1.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-    <!--Sitios-->
-    <script type="module" src="index.js"></script>
     <!--Estilos-->
     <link rel="stylesheet" type="text/css" media="screen" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/app.css" />
   </head>
   <body>
-    <div class="d-flex">
-      <div class="sidebar-container" class="bg-primary">
-        <div class="logo">
-          Sistema de estacionamiento
-        </div>
+    <div class="app">
+    <!--Menu-->
+    <div class="sidebar">
+      <div id="menu"></div>
+    </div>
+    <!--Fin de Menu-->
+
+    <!--Main-->
+    <div class="main">
+      <!--Header-->
+      <div class="top-row px-4">
+        <a href="/" class="ml-md-auto">Salir</a>
+      </div>
+      <!--Fin de Header-->
+
+      <div class="content px-4">
+        <p>Prueba</p>
+        <div id="content"></div>
       </div>
     </div>
-        <div id="menu"></div>
-        <div id="header"></div>
-    <p>Prueba</p>
+    <!--Fin de Main-->
+  </div>
+  
+  <!--Sitios-->
+  <script type="module" src="index.js"></script>
   </body>
 </html>

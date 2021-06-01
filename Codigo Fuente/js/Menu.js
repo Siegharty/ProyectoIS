@@ -1,23 +1,36 @@
-import loadCSS from '../js/Helper/loadCSS.js';
+import Perfil from '../js/Perfil.js';
+import Saldo from '../js/Saldo.js';
+import Infracciones from '../js/Infracciones.js';
+import PuntosVenta from '../js/PuntosVenta.js';
+import EstacionamientoLibre from '../js/EstacionamientoLibre.js';
 
 var Menu = {
-    init: () => {
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-
-        $(window).resize(function(e) {
-          if($(window).width()<=768){
-            $("#wrapper").removeClass("toggled");
-          }else{
-            $("#wrapper").addClass("toggled");
-          }
-        });
-        
-        $("#menu").load("../pages/Components/Menu.html");
-        loadCSS("../css/Menu.css");
+  onClickItem: (event) => {
+    switch (event.target.text) {
+      case 'Perfil':
+        Perfil.init();
+        break;
+      case 'Saldo':
+        Saldo.init();
+        break;
+      case 'Infracciones':
+        Infracciones.init();
+        break;
+      case 'Puntos de venta':
+        PuntosVenta.init();
+        break;
+      case 'Estacionamiento libre':
+        EstacionamientoLibre.init();
+        break;
+      default:
+        Saldo.init();
     }
+  },
+  init: () => {
+    $('#menu').load('../pages/Menu.html', () => {
+      $('.nav-link').click((event) => Menu.onClickItem(event));
+    });
+  },
 };
 
 export default Menu;
