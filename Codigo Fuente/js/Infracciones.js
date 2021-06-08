@@ -74,6 +74,15 @@ var Infracciones = {
 
     Infracciones.mostrarAcarreos();
   },
+  limpiarDatos : () => {
+    $('#tablaInfracciones').show();
+    $('#tablaInfracciones > tbody').empty();
+    $('#mensajeError').hide();
+    $('#nombreAcarreo').text('');
+    $('#direccionAcarreo').text('');
+    $('#telefonoAcarreo').text('');
+    $('#horariosAcarreo').text('');
+  },
   init: () => {
     $('#content').load('../pages/Infracciones.html', () => {
       //Handle de buscador de infracciones
@@ -84,13 +93,7 @@ var Infracciones = {
           return;
         }
 
-        $('#tablaInfracciones').show();
-        $('#tablaInfracciones > tbody').empty();
-        $('#mensajeError').hide();
-        $('#nombreAcarreo').text('');
-        $('#direccionAcarreo').text('');
-        $('#telefonoAcarreo').text('');
-        $('#horariosAcarreo').text('');
+        Infracciones.limpiarDatos();
 
         Infracciones.obtenerInfraccionPorPatente(patente);
       });
