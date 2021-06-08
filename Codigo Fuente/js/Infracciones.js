@@ -8,6 +8,7 @@ var Infracciones = {
 
     $.ajax({
       url: urlService,
+      type: 'GET',
       success: function (response) {
         //TODO: Si no tiene infracciones, mostrar que no hay infracciones disponibles
 
@@ -49,6 +50,7 @@ var Infracciones = {
   init: () => {
     $('#content').load('../pages/Infracciones.html', function () {
       $('#enviar').click(() => {
+        $('#tablaInfracciones').show();
         const patente = $('#buscador').val();
         Infracciones.obtenerInfraccionPorPatente(patente);
       });
