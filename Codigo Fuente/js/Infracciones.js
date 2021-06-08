@@ -1,4 +1,4 @@
-import DateHelper from "../js/Helper/Date.js";
+import DateHelper from '../js/Helper/Date.js';
 
 var Infracciones = {
   obtenerInfraccionPorPatente: (patente) => {
@@ -9,12 +9,10 @@ var Infracciones = {
     $.ajax({
       url: urlService,
       type: 'GET',
-      success: function (response) {
+      success: (response) => {
         //TODO: Si no tiene infracciones, mostrar que no hay infracciones disponibles
 
         Infracciones.dibujarTablaInfracciones(response.infracciones);
-
-        console.log(response);
       },
     });
   },
@@ -23,17 +21,17 @@ var Infracciones = {
 
     return $.ajax({
       url: urlService,
-      type:'GET'
+      type: 'GET',
     });
   },
   obtenerDescripcionInfraccionPorId: (tiposInfracciones, idTipo) => {
-    return tiposInfracciones.find(x => x.id == idTipo).descripcion;
+    return tiposInfracciones.find((x) => x.id == idTipo).descripcion;
   },
   dibujarTablaInfracciones: async (infracciones) => {
     const tiposInfracciones = await Infracciones.obtenerTiposInfracciones();
 
     infracciones.map((infraccion, index) => {
-      const infraccionesDescripcion = Infracciones.obtenerDescripcionInfraccionPorId(tiposInfracciones.tipos,infraccion.tipoInfraccion)
+      const infraccionesDescripcion = Infracciones.obtenerDescripcionInfraccionPorId(tiposInfracciones.tipos, infraccion.tipoInfraccion);
       //Dibujar tabla en html
       const row = `
       <tr>
@@ -48,11 +46,19 @@ var Infracciones = {
     });
   },
   init: () => {
-    $('#content').load('../pages/Infracciones.html', function () {
+    $('#content').load('../pages/Infracciones.html', () => {
+      //Handle de buscador de infracciones
       $('#enviar').click(() => {
         $('#tablaInfracciones').show();
+        $('#tablaInfracciones > tbody').empty();
+
         const patente = $('#buscador').val();
         Infracciones.obtenerInfraccionPorPatente(patente);
+      });
+
+      //Capitaliza texto
+      $('#buscador').on('input', (event) => {
+        event.target.value = event.target.value.toLocaleUpperCase();
       });
     });
   },
