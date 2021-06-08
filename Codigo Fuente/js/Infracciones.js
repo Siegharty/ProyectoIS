@@ -4,7 +4,7 @@ var Infracciones = {
   obtenerInfraccionPorPatente: (patente) => {
     const urlService = `https://infraccionesweb.herokuapp.com/api/${patente}/infracciones/`;
 
-    $.ajax({
+    return $.ajax({
       url: urlService,
       type: 'GET',
       success: (response) => {
@@ -28,6 +28,32 @@ var Infracciones = {
   obtenerDescripcionInfraccionPorId: (tiposInfracciones, idTipo) => {
     return tiposInfracciones.find((x) => x.id == idTipo).descripcion;
   },
+  mostrarAcarreos: () => {
+    //Agrega evento para traer informacion del deposito
+    $('#acarreo').click((event) => {
+      if (event.target.text == 'No') {
+        return;
+      }
+      const idInfraccionSeleccionada = event.target.getAttribute('data-id');
+      const patente = $('#buscador').val();
+      Infracciones.obtenerDepositoPorIdDeInfraccion(patente, idInfraccionSeleccionada);
+    });
+  },
+  obtenerDepositoPorIdDeInfraccion: (patente, idInfraccion) => {
+    const urlService = `https://infraccionesweb.herokuapp.com/api/${patente}/acarreos/${idInfraccion}`;
+    $.ajax({
+      url: urlService,
+      type: 'GET',
+      success: (response) => {
+        const deposito = response.acarreo.deposito;
+        $("#informacionAcarreo").show();
+        $('#nombreAcarreo').text(`${deposito.nombre}`);
+        $('#direccionAcarreo').text(`${deposito.direccion}`);
+        $('#telefonoAcarreo').text(`Telefono: ${deposito.telefono}`);
+        $('#horariosAcarreo').text(`Horarios: ${deposito.horarios}`);
+      }
+    });
+  },
   dibujarTablaInfracciones: async (infracciones) => {
     const tiposInfracciones = await Infracciones.obtenerTiposInfracciones();
 
@@ -39,17 +65,19 @@ var Infracciones = {
         <td id="motivo">${infraccionesDescripcion}</td>
         <td id="fechaDeRegistro">${DateHelper.fechaDDMMYYYY(infraccion.fechaHoraRegistro)}</td>
         <td id="montoAPagar">${infraccion.montoAPagar}</td>
-        <td id="existeCarreo">${infraccion.existeAcarreo ? 'Si' : 'No'}</td>
+        <td id="existeCarreo">${infraccion.existeAcarreo ? `<a href="#" id="acarreo" data-id=${infraccion.id}>Si - Más informacion</a>` : 'No'}</td>
         <td id="direccionRegistrada">${infraccion.direccionRegistrada}</td>
       </tr>
       `;
       return $('#tablaInfracciones > tbody:last-child').append(row);
     });
+
+    Infracciones.mostrarAcarreos();
   },
   init: () => {
     $('#content').load('../pages/Infracciones.html', () => {
       //Handle de buscador de infracciones
-      $('#enviar').click(() => {
+      $('#enviar').click(async () => {
         const patente = $('#buscador').val();
         if (patente.length < 6) {
           $('#mensajeError').show();
@@ -59,6 +87,10 @@ var Infracciones = {
         $('#tablaInfracciones').show();
         $('#tablaInfracciones > tbody').empty();
         $('#mensajeError').hide();
+        $('#nombreAcarreo').text('');
+        $('#direccionAcarreo').text('');
+        $('#telefonoAcarreo').text('');
+        $('#horariosAcarreo').text('');
 
         Infracciones.obtenerInfraccionPorPatente(patente);
       });

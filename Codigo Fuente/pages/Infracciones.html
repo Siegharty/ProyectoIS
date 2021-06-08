@@ -4,18 +4,28 @@
     <input type="text" id="buscador" name="buscador" placeholder="Ingrese la patente" />
     <button id="enviar" type="button" class="btn btn-primary">Buscar infraccion</button>
   </div>
-  <span id="mensajeError" style="color:red; display: none;">Debe ingresar una patente valida.</span>
+  <span id="mensajeError" style="color: red; display: none">Debe ingresar una patente valida.</span>
 </div>
 
-<table id="tablaInfracciones" class="table" style="display: none">
-  <thead>
-    <tr>
-      <th scope="col">Motivo de Infraccion</th>
-      <th scope="col">Fecha de Registro</th>
-      <th scope="col">Monto a pagar</th>
-      <th scope="col">Tiene Acarreo</th>
-      <th scope="col">Direccion Registrada</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+<div class="row">
+  <table id="tablaInfracciones" class="table" style="display: none">
+    <thead>
+      <tr>
+        <th scope="col">Motivo de Infraccion</th>
+        <th scope="col">Fecha de Registro</th>
+        <th scope="col">Monto a pagar</th>
+        <th scope="col">Tiene Acarreo</th>
+        <th scope="col">Direccion Registrada</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="jumbotron" id="informacionAcarreo" style="display: none;">
+  <h1 class="display-4" id="nombreAcarreo"></h1>
+  <p class="lead" id="direccionAcarreo"></p>
+  <hr class="my-4">
+  <p id="telefonoAcarreo"></p>
+  <p id="horariosAcarreo"></p>
+</div>
