@@ -2,15 +2,16 @@ import DateHelper from '../js/Helper/Date.js';
 
 var Infracciones = {
   obtenerInfraccionPorPatente: (patente) => {
-    //TODO: Validar si la patente viene con info o no
-    //TODO: Convertir la patente en mayusculas
     const urlService = `https://infraccionesweb.herokuapp.com/api/${patente}/infracciones/`;
 
     $.ajax({
       url: urlService,
       type: 'GET',
       success: (response) => {
-        //TODO: Si no tiene infracciones, mostrar que no hay infracciones disponibles
+        if (response.infracciones.length == 0) {
+          const row = '<tr><td colspan="5">No hay infracciones registradas</td></tr>';
+          return $('#tablaInfracciones > tbody:last-child').append(row);
+        }
 
         Infracciones.dibujarTablaInfracciones(response.infracciones);
       },
@@ -30,7 +31,7 @@ var Infracciones = {
   dibujarTablaInfracciones: async (infracciones) => {
     const tiposInfracciones = await Infracciones.obtenerTiposInfracciones();
 
-    infracciones.map((infraccion, index) => {
+    infracciones.map((infraccion) => {
       const infraccionesDescripcion = Infracciones.obtenerDescripcionInfraccionPorId(tiposInfracciones.tipos, infraccion.tipoInfraccion);
       //Dibujar tabla en html
       const row = `
@@ -49,10 +50,16 @@ var Infracciones = {
     $('#content').load('../pages/Infracciones.html', () => {
       //Handle de buscador de infracciones
       $('#enviar').click(() => {
+        const patente = $('#buscador').val();
+        if (patente.length < 6) {
+          $('#mensajeError').show();
+          return;
+        }
+
         $('#tablaInfracciones').show();
         $('#tablaInfracciones > tbody').empty();
+        $('#mensajeError').hide();
 
-        const patente = $('#buscador').val();
         Infracciones.obtenerInfraccionPorPatente(patente);
       });
 
