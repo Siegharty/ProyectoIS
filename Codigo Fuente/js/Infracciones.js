@@ -78,6 +78,7 @@ var Infracciones = {
     $('#tablaInfracciones').show();
     $('#tablaInfracciones > tbody').empty();
     $('#mensajeError').hide();
+    $('#informacionAcarreo').hide();
     $('#nombreAcarreo').text('');
     $('#direccionAcarreo').text('');
     $('#telefonoAcarreo').text('');
