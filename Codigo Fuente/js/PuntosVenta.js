@@ -1,34 +1,22 @@
 var PuntosVenta = {
   init: () => {
     $('#content').load('../pages/PuntosVenta.html', () => {
-      $(bootstrap);
+      $(mapa_com);
     });
   },
 };
 
-var bootstrap = function () {
-  //Para el ejemplo
-  var url = Config.url;
-  var urlLocations = '/locations/';
-  var urlStates = '/weatherstates/';
-  var location_id = '4852';
+var mapa_com = function () {
 
   var map = createMap('mapPuntosVenta');
   var drawer = new Drawer();
 
-  fetch(url + urlLocations + location_id) //pedimos la ubicacion al servidor
-    .then((data) => data.json()) //parseamos la respuesta a un JSON
-    .then((data) => data['location']) // extraemos la ubicacion de la respuesta del servidor
-    .then((localizacion) => {
-      fetch(url + urlStates + localizacion.state_id) // resolvemos el estado
-        .then((data) => data.json())
-        .then((data) => {
-          // dibujamos la ubicacion con su estado
-          localizacion.state = data.state;
-          console.log(localizacion);
-          drawer.drawLocationInMap(localizacion, map);
-        });
-    });
+  drawer.drawLocationInMap(-34.522451, -58.7019500, map);
+  drawer.drawLocationInMap(-34.532903, -58.7015454, map);
+  drawer.drawLocationInMap(-34.521872, -58.7012310, map);
+  drawer.drawLocationInMap(-34.542395, -58.7103609, map);
+  drawer.drawLocationInMap(-34.544059, -58.7093784, map);
+
 };
 
 export default PuntosVenta;
