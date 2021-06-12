@@ -16,6 +16,34 @@ var mapa_est = function () {
   drawer.drawLocationInMap(-34.5389316, -58.7154211, map);
   drawer.drawLocationInMap(-34.5398986, -58.7145535, map);
   drawer.drawLocationInMap(-34.5395412, -58.7124483, map);
+
+  drawer.drawLocationInMap(-34.533710789745264, -58.70683233493153, map);
+  drawer.drawLocationInMap(-34.532893251822564, -58.70589406359898, map);
+  drawer.drawLocationInMap(-34.53240272521586, -58.70894344542978, map);
+  drawer.drawLocationInMap(-34.531258151895535, -58.708781052314535, map);
+
+  drawer.drawLocationInMap(-34.51642595414828, -58.709890536901966, map);
+  drawer.drawLocationInMap(-34.51544470406117, -58.71487059243629, map);
+  drawer.drawLocationInMap(-34.520677904313416, -58.71469015564158, map);
+  drawer.drawLocationInMap(-34.516842238572615, -58.708483129903136, map);
+  drawer.drawLocationInMap(-34.513214547248246, -58.709710100107245, map);
+  drawer.drawLocationInMap(-34.52133203123077, -58.71364362223218, map);
+
+  drawer.drawLocationInMap(-34.54294681566615, -58.707657511308284, map);
+  drawer.drawLocationInMap(-34.54103792464161, -58.70802229173243, map);
+  drawer.drawLocationInMap(-34.54091419871267, -58.70617693193965, map);
+  drawer.drawLocationInMap(-34.54179795131323, -58.70585506685952, map);
+
+  drawer.drawLocationInMap(-34.535706672629985, -58.71751681247522, map);
+  drawer.drawLocationInMap(-34.53498145448949, -58.71426331640657, map);
+  drawer.drawLocationInMap(-34.53592738994059, -58.71496505085276, map);
+  drawer.drawLocationInMap(-34.53632678168189, -58.71838441142687, map);
+  drawer.drawLocationInMap(-34.537377803424576, -58.71704473657507, map);
+
+  drawer.drawLocationInMap(-34.54235338877845, -58.7238713199616, map);
+  drawer.drawLocationInMap(-34.54143905526587, -58.72205956920964, map);
+  drawer.drawLocationInMap(-34.54382470897727, -58.72328441478844, map);
+  drawer.drawLocationInMap(-34.54285784434805, -58.721587493309485, map);
   
 
   L.polygon([
