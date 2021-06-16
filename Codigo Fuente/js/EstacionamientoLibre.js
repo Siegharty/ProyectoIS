@@ -12,7 +12,9 @@ var EstacionamientoLibre = {
   },
   hacerZoomOnClick: () => {
     $('.list-group-item').click((event) => {
-      
+      $(".list-group-item.active").removeClass('active');
+      $(event.target).addClass("active")
+
       var marcador = marcadores[event.target.getAttribute('value')];
       marcador.openPopup();
       mapa.setView(marcador._latlng, 16);
