@@ -1,17 +1,14 @@
-var Drawer = function() {
-    return {        
-		drawLocationInMap: drawLocationInMap
-    }
+var marcadores = [];
+var Drawer = function () {
+  return {
+    drawLocationInMap: drawLocationInMap,
+  };
 
-    /******************************************************************************
-     * Función para dibujar una ubicacion en un mapa.
-     */
-    function drawLocationInMap(lat, long, map) {
-		// Creamos un marker.		
-		var p = L.marker(L.latLng(lat, long));
-		p.addTo(map);
-    
-	}
-
-
-}
+  /******************************************************************************
+   * Función para dibujar una ubicacion en un mapa.
+   */
+  function drawLocationInMap(id, lat, long, map) {
+    // Creamos un marker.
+    marcadores[id] = L.marker(L.latLng(lat, long)).addTo(map).bindPopup(`Estacionamiento ${id}`);
+  }
+};
