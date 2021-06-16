@@ -3,6 +3,7 @@ var Estacionamientos = [
   {
     id: 1,
     nombre: 'Estacionamiento 1',
+    estado: 1,
     lat: -34.5408936,
     lon: -58.7131234,
   },
