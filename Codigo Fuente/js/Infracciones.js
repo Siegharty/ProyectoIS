@@ -70,6 +70,7 @@ var Infracciones = {
       //Dibujar tabla en html
       const row = `
       <tr>
+        <td id="idInfraccion">${infraccion.id}</td>
         <td id="motivo">${infraccionesDescripcion}</td>
         <td id="fechaDeRegistro">${DateHelper.fechaDDMMYYYY(infraccion.fechaHoraRegistro)}</td>
         <td id="montoAPagar">${infraccion.montoAPagar}</td>
