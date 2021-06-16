@@ -2,6 +2,7 @@
  * Función para crear un mapa.
  */
  var mapa;
+ var layersControl;
  
  var createMap = function(nodeId, events) {
     // Ubicación de la UNGS.
@@ -16,7 +17,7 @@
     }).addTo(mapa);
 
     // Agregamos el control para seleccionar Layers al mapa
-    var layersControl = L.control.layers({
+    layersControl = L.control.layers({
         "Base": baseLayer
     });
     layersControl.addTo(mapa);

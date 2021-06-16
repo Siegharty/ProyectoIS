@@ -46,13 +46,21 @@ var Infracciones = {
       type: 'GET',
       success: (response) => {
         const deposito = response.acarreo.deposito;
-        $("#informacionAcarreo").show();
+        $('#informacionAcarreo').show();
         $('#nombreAcarreo').text(`${deposito.nombre}`);
         $('#direccionAcarreo').text(`${deposito.direccion}`);
         $('#telefonoAcarreo').text(`Telefono: ${deposito.telefono}`);
         $('#horariosAcarreo').text(`Horarios: ${deposito.horarios}`);
-      }
+        const ubicacion = deposito.ubicacion;
+        Infracciones.dibujarMapaAcarreo(ubicacion.lat, ubicacion.lon);
+      },
     });
+  },
+  dibujarMapaAcarreo: (lat, lon) => {
+    var map = createMap('mapaAcarreo');
+    var drawer = new Drawer();
+
+    return drawer.drawLocationInMap(1, lat, lon, map);
   },
   dibujarTablaInfracciones: async (infracciones) => {
     const tiposInfracciones = await Infracciones.obtenerTiposInfracciones();
@@ -74,7 +82,7 @@ var Infracciones = {
 
     Infracciones.mostrarAcarreos();
   },
-  limpiarDatos : () => {
+  limpiarDatos: () => {
     $('#tablaInfracciones').show();
     $('#tablaInfracciones > tbody').empty();
     $('#mensajeError').hide();
