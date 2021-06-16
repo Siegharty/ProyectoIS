@@ -1,6 +1,7 @@
 import Infracciones from '../js/Infracciones.js';
 import PuntosVenta from '../js/PuntosVenta.js';
 import EstacionamientoLibre from '../js/EstacionamientoLibre.js';
+import EstacionamientoActivo from '../js/EstacionamientoActivo.js';
 
 var Menu = {
   onClickItem: (event) => {
@@ -13,6 +14,9 @@ var Menu = {
         break;
       case 'Estacionamiento libre':
         EstacionamientoLibre.init();
+        break;
+      case 'Estacionamiento activo':
+        EstacionamientoActivo.init();
         break;
     }
   },
