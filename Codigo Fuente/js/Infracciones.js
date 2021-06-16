@@ -96,8 +96,13 @@ var Infracciones = {
     $('#content').load('../pages/Infracciones.html', () => {
       //Handle de buscador de infracciones
       $('#enviar').click(async () => {
+
         const patente = $('#buscador').val();
-        if (patente.length < 6) {
+        let regexPatenteNueva = (/[a-zA-Z]{2}[\d]{3}[a-zA-Z]{2}$/gm).test(patente);
+        let regexPatenteVieja = (/[a-zA-Z]{3}[\d]{3}$/gm).test(patente);
+
+        if(!(regexPatenteNueva || regexPatenteVieja))
+        {
           $('#mensajeError').show();
           return;
         }
