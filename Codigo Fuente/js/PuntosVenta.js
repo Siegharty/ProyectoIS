@@ -9,13 +9,13 @@ var PuntosVenta = {
 var mapa_com = function () {
 
   var map = createMap('mapPuntosVenta');
-  var drawer = new Drawer();
+  var drawer2 = new Drawer2();
 
-  drawer.drawLocationInMap(-34.522451, -58.7019500, map);
-  drawer.drawLocationInMap(-34.532903, -58.7015454, map);
-  drawer.drawLocationInMap(-34.521872, -58.7012310, map);
-  drawer.drawLocationInMap(-34.542395, -58.7103609, map);
-  drawer.drawLocationInMap(-34.544059, -58.7093784, map);
+  drawer2.drawLocationInMap2(-34.522451, -58.7019500, map);
+  drawer2.drawLocationInMap2(-34.532903, -58.7015454, map);
+  drawer2.drawLocationInMap2(-34.521872, -58.7012310, map);
+  drawer2.drawLocationInMap2(-34.542395, -58.7103609, map);
+  drawer2.drawLocationInMap2(-34.544059, -58.7093784, map);
 
 };
 

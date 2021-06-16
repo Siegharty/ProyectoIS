@@ -14,8 +14,6 @@ var Menu = {
       case 'Estacionamiento libre':
         EstacionamientoLibre.init();
         break;
-      default:
-        Saldo.init();
     }
   },
   init: () => {
