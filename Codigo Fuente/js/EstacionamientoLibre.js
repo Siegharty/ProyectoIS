@@ -51,8 +51,6 @@ var EstacionamientoLibre = {
   },
   init: () => {
     $('#content').load('../pages/EstacionamientoLibre.html', () => {
-      EstacionamientoLibre.mostrarListadoDirecciones();
-      EstacionamientoLibre.hacerZoomOnClick();
       $(mapa_est);
     });
   },

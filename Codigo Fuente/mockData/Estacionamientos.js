@@ -39,7 +39,7 @@ var Estacionamientos = [
   {
     id: 6,
     nombre: 'Estacionamiento 6',
-    estado: 0,
+    estado: 1,
     lat: -34.533710789745264,
     lon: -58.70683233493153,
   },
@@ -53,7 +53,7 @@ var Estacionamientos = [
   {
     id: 8,
     nombre: 'Estacionamiento 8',
-    estado: 0,
+    estado: 1,
     lat: -34.53240272521586,
     lon: -58.70894344542978,
   },
@@ -82,14 +82,14 @@ var Estacionamientos = [
   {
     id: 12,
     nombre: 'Estacionamiento 12',
-    estado: 0,
+    estado: 1,
     lat: -34.520677904313416,
     lon: -58.71469015564158,
   },
   {
     id: 13,
     nombre: 'Estacionamiento 13',
-    estado: 0,
+    estado: 1,
     lat: -34.516842238572615,
     lon: -58.708483129903136,
   },
