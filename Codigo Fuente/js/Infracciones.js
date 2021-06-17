@@ -60,7 +60,7 @@ var Infracciones = {
     var map = createMap('mapaAcarreo');
     var drawer = new Drawer();
 
-    return drawer.drawLocationInMap(1, lat, lon, map);
+    return drawer.drawLocationInMap(1, '' ,lat, lon, map);
   },
   dibujarTablaInfracciones: async (infracciones) => {
     const tiposInfracciones = await Infracciones.obtenerTiposInfracciones();

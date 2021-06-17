@@ -63,7 +63,7 @@ var mapa_est = function () {
   var drawer = new Drawer();
 
   Estacionamientos.map((estacionamiento) => {
-    return drawer.drawLocationInMap(estacionamiento.id, estacionamiento.lat, estacionamiento.lon, map);
+    return drawer.drawLocationInMap(estacionamiento.id, estacionamiento.nombre,estacionamiento.lat, estacionamiento.lon, map);
   });
 
   Zonas.map((zona) => {

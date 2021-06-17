@@ -1,0 +1,48 @@
+var Comercios = [
+  {
+    id: 1,
+    nombre: 'Comercio 1',
+    nombreEmpresa: 'YPF',
+    horario: 'Abierto 24hs',
+    rubro: 'Estacion de Servicio',
+    direccion: 'Av. Pres. Arturo Umberto Illia 3770',
+    estado: 0,
+    lat: -34.53287230467574,
+    lon: -58.701464530273846,
+  },
+  {
+    id: 2,
+    nombre: 'Comercio 2',
+    nombreEmpresa: 'Stop Kiosko',
+    horario: '8:30 - 22:30',
+    rubro: 'Kiosco',
+    direccion: 'Juan María Gutiérrez 1098',
+    estado: 0,
+    lat: -34.52144397510676,
+    lon: -58.701084031833,
+  },
+  {
+    id: 3,
+    nombre: 'Comercio 3',
+    nombreEmpresa: 'Bensi',
+    horario: '8:30 - 20:30',
+    rubro: 'Libreria',
+    direccion: 'Belgrano 1091',
+    estado: 0,
+    lat: -34.542285192620206,
+    lon: -58.71015799037165,
+  },
+  {
+    id: 4,
+    nombre: 'Comercio 4',
+    nombreEmpresa: 'Dalessandro',
+    horario: '9:00 - 20:30',
+    rubro: 'Libreria',
+    direccion: 'Av. Pres. Juan Domingo Perón 1360',
+    estado: 0,
+    lat: -34.54406190052474,
+    lon: -58.709403200718434,
+  },
+];
+
+export default Comercios;

@@ -1,8 +1,25 @@
 <p>Puntos de venta</p>
 
-<div id="mapPuntosVenta" style="height: 400px;"></div>
+<div class="row">
+  <div class="col">
+    <div id="mapPuntosVenta" style="height: 400px"></div>
+  </div>
+  <div class="col">
+    <div id="listadoDireccionesComercios">
+      <div class="list-group"></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="jumbotron" id="informacionComercio" style="display: none">
+      <h1 class="display-4" id="nombreEmpresaComercio"></h1>
+      <p class="lead" id="direccionComercio"></p>
+      <hr class="my-4" />
+      <p id="horarioComercio"></p>
+    </div>
+  </div>
+</div>
 
 <script src="../js/Mapa/Mapa.js"></script>
-<script src="../js/Mapa/Drawer2.js"></script>
-
-
+<script src="../js/Mapa/Drawer.js"></script>
